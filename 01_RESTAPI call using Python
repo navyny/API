@@ -1,0 +1,63 @@
+#Python program to make REST API call  {GET & POST}
+
+
+
+Python Script to make an API call using GET and getting the response back in XML:
+
+
+#!/usr/bin/env python
+
+
+########VARIABLES#######
+
+# URI
+uri = 'https://nsx-manager1.ipcraft.lab/api/1.0/appliance-management/system/meminfo'
+
+# Authentication Credential
+username = 'admin'
+password = 'password'
+
+# Request Body Format
+body_format = {'Accept': 'application/xml'}
+
+################
+# API Call
+request = requests.get (uri, auth = (username, password), verify = False, headers = body_format)
+
+print (request.text)
+
+———————————————————————————————————————————
+
+Python Script to send the API call using POST (by sending some parameters in XML) and getting the response back in XML:
+
+#!/usr/bin/env python
+
+import requests
+
+# URI
+uri = 'https://nsx-manager1.ipcraft.lab/api/2.0/services/securitytags/tag'
+
+# Authentication Credential
+username = 'admin'
+password = 'password'
+
+# Request Body Format
+body_format = {'Content-Type': 'application/xml'} 
+
+# Since Client is sending “Request Body Data” to server
+request_body = '''
+<securityTag>
+   <objectTypeName>SecurityTag</objectTypeName>
+   <type>
+      <typeName>SecurityTag</typeName>
+   </type>
+   <name>tag_tenant1</name>
+   <description>Security Tag for Tenant1</description>
+      <extendedAttributes></extendedAttributes>
+</securityTag>
+'''
+
+# API Call 
+request = requests.post (uri, data = request_body, auth = (username, password), verify = False, headers = body_format) 
+
+print (request.text)
