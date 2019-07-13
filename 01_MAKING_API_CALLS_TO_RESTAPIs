@@ -1,0 +1,15 @@
+REST API: We can make requests to a REST_API...transport is HTTP/S
+
+To get all repos from my GITHUB account:
+https://api.github.com/users/navyny/repos
+
+
+Root-endpoint ===> of Github’s API is https://api.github.com
+Path   ======> /users/navyny/repos
+Query parameters====> ?
+   (gives you the option to modify your request with key-value pairs)
+   (each querey parameter is seperated with an '&')
+   (Eg: ?query1=value1&query2=value2)
+   
+   
+   
